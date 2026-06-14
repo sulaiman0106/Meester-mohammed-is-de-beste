@@ -227,7 +227,7 @@ function ThankYouSection() {
               </p>
 
               <p>
-                U bent altijd zo rustig en geduldig, zelfs als iets moeilijk is.
+                U bent altijd zo rustig en geduldig, zelfs als de klas het u moeilijk maakt.
                 U legt alles zo goed uit dat ik het uiteindelijk toch begrijp.
               </p>
 
@@ -273,37 +273,31 @@ function BestTeacherSection() {
     {
       icon: '📚',
       title: 'Kennis & Wijsheid',
-      description: 'U deelt niet alleen kennis uit boeken, maar ook levenswijsheid die generaties overspant. Uw lessen gaan verder dan het curriculum.',
+      description: 'U leert ons niet alleen dingen uit boeken, maar ook hoe je een goed mens bent. Uw lessen gaan verder dan school.',
       arabic: 'العلم نور',
     },
     {
       icon: '💚',
       title: 'Geduld & Compassie',
-      description: 'Uw onuitputtelijke geduld en mededogen voor elke leerling maakt u bijzonder. U ziet het potentieel in iedereen.',
+      description: 'U bent heel geduldig met elke leerling en dat maakt u bijzonder. U ziet in iedereen iets goeds.',
       arabic: 'الصبر مفتاح الفرج',
     },
     {
       icon: '🌟',
       title: 'Inspiratie',
-      description: 'U inspireert ons om groter te dromen en harder te werken. Uw passie voor onderwijs is aanstekelijk en motiveert iedereen.',
+      description: 'U motiveert ons om groter te dromen en ons best te doen. Uw enthousiasme maakt iedereen gemotiveerd.',
       arabic: 'كن مصدر إلهام',
     },
     {
       icon: '🤲',
       title: 'Geloof & Karakter',
-      description: 'U leert ons niet alleen over de wereld, maar ook over onze deen. U bent een voorbeeld van goed karakter en toewijding.',
+      description: 'U leert ons niet alleen over de deen en Arabisch, maar ook over deze wereld.',
       arabic: 'خير الناس أنفعهم للناس',
-    },
-    {
-      icon: '🕊️',
-      title: 'Vrede & Respect',
-      description: 'In uw klas heerst altijd een sfeer van respect en vrede. U leert ons om met liefde en begrip naar anderen te kijken.',
-      arabic: 'السلام عليكم',
     },
     {
       icon: '🌱',
       title: 'Groei & Ontwikkeling',
-      description: 'Dankzij u zijn wij gegroeid als mensen. U plant zaden van kennis die een leven lang bloeien.',
+      description: 'Dankzij u hebben we een mooie basis gekregen om een goede moslim nu te zijn en in de toekomst.',
       arabic: 'من جدّ وجد',
     },
   ];
