@@ -209,7 +209,6 @@ function ThankYouSection() {
           </div>
 
           <div className="glass-card rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
-            {/* Subtle corner ornament */}
             <div className="absolute top-4 right-4 opacity-20">
               <IslamicStar size={40} />
             </div>
@@ -217,41 +216,45 @@ function ThankYouSection() {
               <IslamicStar size={40} />
             </div>
 
+            {/* TEXT BLOCK */}
             <div className="space-y-6 text-islamic-green-800/90 text-lg md:text-xl leading-relaxed font-light">
+              <p>
+                <span className="text-2xl md:text-3xl font-[var(--font-playfair)] font-semibold text-islamic-green-700 block mb-4">
+                  Beste meester,
+                </span>
 
-  <p>
-    <span className="text-2xl md:text-3xl font-[var(--font-playfair)] font-semibold text-islamic-green-700 block mb-4">
-      Beste meester,
-    </span>
+                Soms komen er leraren in je leven die je nooit meer vergeet… en u bent er echt één van.
+              </p>
 
-    Soms komen er leraren in je leven die je nooit meer vergeet… en u bent er echt één van.
-  </p>
+              <p>
+                U bent altijd zo rustig en geduldig, zelfs als iets moeilijk is.
+                U legt alles zo goed uit dat ik het uiteindelijk toch begrijp.
+              </p>
 
-  <p>
-    U bent altijd zo rustig en geduldig, zelfs als iets moeilijk is.
-    U legt alles zo goed uit dat ik het uiteindelijk toch begrijp.
-  </p>
+              <p>
+                Door u heb ik niet alleen dingen uit boeken geleerd, maar ook wat echt belangrijk is in het leven:
+                respect, doorzetten en goed doen voor anderen.
+              </p>
 
-  <p>
-    Door u heb ik niet alleen dingen uit boeken geleerd, maar ook wat echt belangrijk is in het leven:
-    respect, doorzetten en goed doen voor anderen.
-  </p>
+              <p>
+                Soms had ik het moeilijk, maar uw lessen gaven mij motivatie om niet op te geven.
+                Dat zal ik nooit vergeten.
+              </p>
 
-  <p>
-    Soms had ik het moeilijk, maar uw lessen gaven mij motivatie om niet op te geven.
-    Dat zal ik nooit vergeten.
-  </p>
+              <p>
+                Ik ben u echt heel dankbaar voor alles wat u voor mij heeft gedaan.
+                U bent niet alleen een meester voor mij… maar iemand die mij echt heeft geholpen om beter te worden.
+              </p>
 
-  <p>
-    Ik ben u echt heel dankbaar voor alles wat u voor mij heeft gedaan.
-    U bent niet alleen een meester voor mij… maar iemand die mij echt heeft geholpen om beter te worden.
-  </p>
+              <p
+                className="text-right font-[var(--font-amiri)] text-gold-600 text-xl md:text-2xl pt-4"
+                dir="rtl"
+              >
+                جزاك الله خيراً يا أستاذي
+              </p>
+            </div>
 
-  <p className="text-right font-[var(--font-amiri)] text-gold-600 text-xl md:text-2xl pt-4" dir="rtl">
-    جزاك الله خيراً يا أستاذي
-  </p>
-
-</div>
+          </div>
 
           {/* Closing quote */}
           <div className="absolute -bottom-4 right-4 md:right-8 text-gold-300/30 text-8xl font-[var(--font-amiri)] leading-none select-none rotate-180">
@@ -264,7 +267,6 @@ function ThankYouSection() {
     </section>
   );
 }
-
 // Best Teacher Section
 function BestTeacherSection() {
   const reasons = [
