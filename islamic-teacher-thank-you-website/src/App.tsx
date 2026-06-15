@@ -394,7 +394,22 @@ function GallerySection() {
     </section>
   );
 }
+function QuranSection() {
+  return (
+    <section
+      id="quran"
+      className="relative py-20 md:py-32 bg-cream islamic-pattern-light"
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <SectionTitle subtitle="Lees en ontdek">
+          القرآن الكريم
+        </SectionTitle>
 
+        <Quran />
+      </div>
+    </section>
+  );
+}
 // Closing Section
 function ClosingSection() {
   return (
