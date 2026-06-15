@@ -45,7 +45,11 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
         <a href="#welkom" className="flex items-center gap-2 group">
-          <IslamicStar size={24} className="group-hover:animate-rotate-slow transition-all" />
+         <img
+  src="/images/logo.png"
+  alt="Logo"
+  className="h-6 w-6 object-contain group-hover:scale-110 transition"
+/>
           <span className="gold-text font-bold text-lg font-[var(--font-playfair)]">شكراً</span>
         </a>
 
