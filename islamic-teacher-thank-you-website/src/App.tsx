@@ -1,3 +1,4 @@
+import Quran from "./components/Quran";
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import AudioPlayer from './components/AudioPlayer';
