@@ -149,7 +149,11 @@ function HeroSection() {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="mb-6"
         >
-          <IslamicStar size={50} className="mx-auto animate-glow mb-6" />
+         <img
+  src="/images/logo.png"
+  alt="Logo"
+  className="mx-auto h-16 w-16 object-contain mb-6"
+/>
         </motion.div>
 
         <motion.h1
