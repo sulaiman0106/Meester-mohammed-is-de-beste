@@ -28,6 +28,7 @@ function Navbar() {
     { href: '#bedankt', label: 'Bedankt' },
     { href: '#beste-meester', label: 'Beste Meester' },
     { href: '#galerij', label: 'Galerij' },
+    { href: '#quran', label: 'Quran' },
     { href: '#afsluiting', label: 'Afsluiting' },
   ];
 
