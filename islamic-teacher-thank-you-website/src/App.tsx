@@ -591,6 +591,7 @@ export default function App() {
         <ThankYouSection />
         <BestTeacherSection />
         <GallerySection />
+        <QuranSection />
         <ClosingSection />
         <Footer />
         <AudioPlayer />
