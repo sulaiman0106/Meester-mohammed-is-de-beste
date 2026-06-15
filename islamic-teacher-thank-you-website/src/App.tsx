@@ -152,7 +152,7 @@ function HeroSection() {
          <img
   src="/images/logo.png"
   alt="Logo"
-  className="mx-auto h-16 w-16 object-contain mb-6"
+  className="mx-auto h-24 w-24 object-contain mb-6"
 />
         </motion.div>
 
