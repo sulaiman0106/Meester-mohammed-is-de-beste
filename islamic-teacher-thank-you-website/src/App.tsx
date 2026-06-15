@@ -412,18 +412,19 @@ export default function Quran() {
   const [selectedSurah, setSelectedSurah] = useState<number>(1);
   const [ayahs, setAyahs] = useState<Ayah[]>([]);
   const [loading, setLoading] = useState(false);
-
   const [playing, setPlaying] = useState(false);
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // load surahs
+  // Load all surahs
   useEffect(() => {
     fetch("https://api.alquran.cloud/v1/surah")
       .then((res) => res.json())
-      .then((data) => setSurahs(data.data));
+      .then((data) => setSurahs(data.data))
+      .catch(() => console.log("Error loading surahs"));
   }, []);
 
-  // load ayahs
+  // Load selected surah
   useEffect(() => {
     setLoading(true);
 
@@ -432,22 +433,21 @@ export default function Quran() {
       .then((data) => {
         setAyahs(data.data.ayahs);
         setLoading(false);
-      });
+      })
+      .catch(() => setLoading(false));
 
     // stop audio when switching surah
     if (audioRef.current) {
       audioRef.current.pause();
-      setPlaying(false);
+      audioRef.current.currentTime = 0;
     }
+    setPlaying(false);
   }, [selectedSurah]);
 
-  // audio source per surah
-  const audioUrl = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${selectedSurah}.mp3`;
+  const audioSrc = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${selectedSurah}.mp3`;
 
   const toggleAudio = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(audioUrl);
-    }
+    if (!audioRef.current) return;
 
     if (playing) {
       audioRef.current.pause();
@@ -461,10 +461,11 @@ export default function Quran() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
 
-      {/* Surah selector */}
+      {/* Surah selector + audio */}
       <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
+
         <select
-          className="p-3 rounded-lg border border-gray-300 bg-white text-gray-900"
+          className="p-3 rounded-lg border border-gray-300 bg-white text-black"
           value={selectedSurah}
           onChange={(e) => setSelectedSurah(Number(e.target.value))}
         >
@@ -475,14 +476,20 @@ export default function Quran() {
           ))}
         </select>
 
-        {/* Audio button */}
         <button
           onClick={toggleAudio}
-          className="px-4 py-2 rounded-lg bg-gold-500 text-white hover:bg-gold-600 transition"
+          className="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800 transition"
         >
           {playing ? "⏸ Pauzeer recitatie" : "▶ Start recitatie"}
         </button>
       </div>
+
+      {/* hidden audio element */}
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        onEnded={() => setPlaying(false)}
+      />
 
       {/* Loading */}
       {loading && (
@@ -490,17 +497,16 @@ export default function Quran() {
       )}
 
       {/* Ayahs */}
-      <div className="space-y-6 bg-white rounded-2xl shadow-lg p-6 border">
+      <div className="space-y-6 bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
         {ayahs.map((ayah) => (
           <p
             key={ayah.number}
-            className="text-gray-900 text-lg leading-loose font-[var(--font-amiri)] text-right"
+            className="text-black text-lg leading-loose font-[var(--font-amiri)] text-right"
           >
             {ayah.text}
           </p>
         ))}
       </div>
-
     </div>
   );
 }
