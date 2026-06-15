@@ -395,119 +395,31 @@ function GallerySection() {
     </section>
   );
 }
-import { useEffect, useState, useRef } from "react";
-
-type Surah = {
-  number: number;
-  englishName: string;
-};
-
-type Ayah = {
-  number: number;
-  text: string;
-};
-
-export default function Quran() {
-  const [surahs, setSurahs] = useState<Surah[]>([]);
-  const [selectedSurah, setSelectedSurah] = useState<number>(1);
-  const [ayahs, setAyahs] = useState<Ayah[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [playing, setPlaying] = useState(false);
-
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Load all surahs
-  useEffect(() => {
-    fetch("https://api.alquran.cloud/v1/surah")
-      .then((res) => res.json())
-      .then((data) => setSurahs(data.data))
-      .catch(() => console.log("Error loading surahs"));
-  }, []);
-
-  // Load selected surah
-  useEffect(() => {
-    setLoading(true);
-
-    fetch(`https://api.alquran.cloud/v1/surah/${selectedSurah}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAyahs(data.data.ayahs);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-
-    // stop audio when switching surah
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    setPlaying(false);
-  }, [selectedSurah]);
-
-  const audioSrc = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${selectedSurah}.mp3`;
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-
-    if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
-    } else {
-      audioRef.current.play();
-      setPlaying(true);
-    }
-  };
-
+function QuranSection() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <section
+      id="quran"
+      className="relative py-20 md:py-32 bg-cream islamic-pattern-light"
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
 
-      {/* Surah selector + audio */}
-      <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
-
-        <select
-          className="p-3 rounded-lg border border-gray-300 bg-white text-black"
-          value={selectedSurah}
-          onChange={(e) => setSelectedSurah(Number(e.target.value))}
-        >
-          {surahs.map((s) => (
-            <option key={s.number} value={s.number}>
-              {s.number}. {s.englishName}
-            </option>
-          ))}
-        </select>
-
-        <button
-          onClick={toggleAudio}
-          className="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800 transition"
-        >
-          {playing ? "⏸ Pauzeer recitatie" : "▶ Start recitatie"}
-        </button>
-      </div>
-
-      {/* hidden audio element */}
-      <audio
-        ref={audioRef}
-        src={audioSrc}
-        onEnded={() => setPlaying(false)}
-      />
-
-      {/* Loading */}
-      {loading && (
-        <p className="text-gray-600 text-center">Laden...</p>
-      )}
-
-      {/* Ayahs */}
-      <div className="space-y-6 bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
-        {ayahs.map((ayah) => (
-          <p
-            key={ayah.number}
-            className="text-black text-lg leading-loose font-[var(--font-amiri)] text-right"
-          >
-            {ayah.text}
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-black font-[var(--font-playfair)]">
+            القرآن الكريم
+          </h2>
+          <p className="text-gray-600 mt-2 text-sm md:text-base">
+            Lees en luister naar de Heilige Quran
           </p>
-        ))}
+        </div>
+
+        {/* Quran Component */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 md:p-8">
+          <Quran />
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 }
 // Closing Section
