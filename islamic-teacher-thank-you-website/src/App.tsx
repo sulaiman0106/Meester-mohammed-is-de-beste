@@ -542,8 +542,18 @@ function Footer() {
           <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold-500/30" />
         </div>
         <p className="text-gold-400/30 text-sm font-light">
-          Met dankbaarheid en respect gemaakt ✦ شكراً جزيلاً
-        </p>
+  Met dankbaarheid en respect gemaakt ✦ شكراً جزيلاً
+  <br />
+  Made by{" "}
+  <a
+    href="https://tech-loom.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gold-300 hover:text-gold-200 underline transition"
+  >
+    Techloom
+  </a>
+</p>
       </div>
     </footer>
   );
